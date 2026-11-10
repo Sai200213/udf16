@@ -19,6 +19,7 @@ import { useData } from './src/contexts/DataContext';
 import { useNotifications } from './src/contexts/NotificationContext';
 import AppRoutes from './src/routes/AppRoutes';
 import CookieConsent from './components/common/CookieConsent';
+import NetworkStatusBar from './components/common/NetworkStatusBar';
 import {
   FormSection, FormField, SubmittedFormData, SubmissionStatus, User, UserType,
   LeaveRequest, AccountUpdateRequest, ResignationRequest, RequestStatus, FieldType,
@@ -2496,6 +2497,7 @@ const App: React.FC = () => {
 
   return (
     <div className="app-container min-h-screen flex flex-col">
+      <NetworkStatusBar />
       {isDbReadOnly && (
         <div className="bg-amber-600 text-white text-center py-2 px-4 text-xs font-semibold select-none flex items-center justify-center gap-2 shadow-inner z-50">
           <span>⚠️</span>

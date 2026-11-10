@@ -13,6 +13,7 @@ import Breadcrumb from './common/Breadcrumb';
 import DocumentUploadWizard from './employee/DocumentUploadWizard';
 import SecuritySettingsModal from './employee/SecuritySettingsModal';
 import { isNativeApp } from '../src/utils/capacitor-utils';
+import { APP_VERSION, APP_BUILD_DATE } from '../src/constants/version';
 
 interface EmployeeDashboardPageProps {
   currentEmployeeView: AppView;
@@ -684,6 +685,13 @@ const EmployeeDashboardPage: React.FC<EmployeeDashboardPageProps> = (props) => {
               {isSidebarExpanded && <span className="whitespace-nowrap overflow-hidden text-ellipsis animate-in fade-in duration-200">{item.label}</span>}
             </button>
           ))}
+        </div>
+        <div className="mt-auto p-3 border-t border-emerald-800">
+          {isSidebarExpanded && (
+            <div className="text-[10px] text-emerald-300/60 text-center font-mono tracking-wider">
+              UDF {APP_VERSION} ({APP_BUILD_DATE})
+            </div>
+          )}
         </div>
       </aside>
 

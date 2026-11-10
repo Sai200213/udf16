@@ -38,6 +38,7 @@ const AdminGrievancesPage = lazy(() => import('./AdminGrievancesPage'));
 const AdminRecycleBinPage = lazy(() => import('./AdminRecycleBinPage'));
 import Breadcrumb from './common/Breadcrumb';
 import { isNativeApp } from '../src/utils/capacitor-utils';
+import { APP_VERSION, APP_BUILD_DATE } from '../src/constants/version';
 
 const PageLoadingFallback = () => (
   <div className="flex items-center justify-center p-12 min-h-[400px]">
@@ -1075,6 +1076,11 @@ const AdminPortalPage: React.FC<AdminPortalPageProps> = (props) => {
             <LogOut size={18} className={isSidebarExpanded ? 'mr-2' : ''} />
             {isSidebarExpanded && 'Sign Out'}
           </Button>
+          {isSidebarExpanded && (
+            <div className="text-[10px] text-slate-500 text-center mt-3 font-mono tracking-wider">
+              UDF {APP_VERSION} ({APP_BUILD_DATE})
+            </div>
+          )}
         </div>
       </aside>
       <main className={`flex-1 overflow-y-auto bg-gray-50/50 custom-scrollbar ${native ? 'p-0' : 'p-6 lg:p-8'}`}>

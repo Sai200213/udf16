@@ -49,6 +49,27 @@ export default defineConfig(({ mode }) => {
           }
         }
       },
+      {
+        name: 'generate-version-json',
+        closeBundle() {
+          const target = env.VITE_APP_TARGET || process.env.VITE_APP_TARGET || 'public';
+          const outDir = target === 'admin' ? 'dist-admin' : target === 'employee' ? 'dist-employee' : 'dist-public';
+          const versionPath = path.resolve(__dirname, outDir, 'version.json');
+          const versionData = {
+            version: 'v1.0.0',
+            buildDate: '2026.11.10',
+            buildTime: Date.now()
+          };
+          try {
+            if (fs.existsSync(path.resolve(__dirname, outDir))) {
+              fs.writeFileSync(versionPath, JSON.stringify(versionData, null, 2) + '\n', 'utf8');
+              console.log(`[Vite] Generated ${outDir}/version.json`);
+            }
+          } catch (err) {
+            console.warn('[Vite] Could not write version.json:', err);
+          }
+        }
+      },
       VitePWA({
         // For admin portal: self-destruct the service worker so old cached JS can't persist.
         // Admins are always online, no need for offline caching.
