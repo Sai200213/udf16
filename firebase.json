@@ -139,7 +139,7 @@
           ]
         },
         {
-          "source": "**/@(sw.js|sw-v2.js|registerSW.js|workbox-*.js|index.html)",
+          "source": "**/@(sw.js|sw-v2.js|registerSW.js|workbox-*.js|index.html|version.json)",
           "headers": [
             {
               "key": "Cache-Control",
@@ -150,6 +150,23 @@
         {
           "source": "**/*.html",
           "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "version.json",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
             {
               "key": "Cache-Control",
               "value": "no-cache, no-store, must-revalidate"
@@ -418,7 +435,7 @@
           ]
         },
         {
-          "source": "**/@(sw.js|sw-v2.js|registerSW.js|workbox-*.js|index.html)",
+          "source": "**/@(sw.js|sw-v2.js|registerSW.js|workbox-*.js|index.html|version.json)",
           "headers": [
             {
               "key": "Cache-Control",
@@ -429,6 +446,23 @@
         {
           "source": "**/*.html",
           "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "version.json",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
             {
               "key": "Cache-Control",
               "value": "no-cache, no-store, must-revalidate"
@@ -697,7 +731,7 @@
           ]
         },
         {
-          "source": "**/@(sw.js|sw-v2.js|registerSW.js|workbox-*.js|index.html)",
+          "source": "**/@(sw.js|sw-v2.js|registerSW.js|workbox-*.js|index.html|version.json)",
           "headers": [
             {
               "key": "Cache-Control",
@@ -708,6 +742,23 @@
         {
           "source": "**/*.html",
           "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "version.json",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
             {
               "key": "Cache-Control",
               "value": "no-cache, no-store, must-revalidate"

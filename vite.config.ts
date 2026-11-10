@@ -113,10 +113,14 @@ export default defineConfig(({ mode }) => {
           maximumFileSizeToCacheInBytes: 4 * 1024 * 1024, // 4 MB
           skipWaiting: true,
           clientsClaim: true,
-          globIgnores: (env.VITE_APP_TARGET || process.env.VITE_APP_TARGET) === 'public'
-            ? ['**/Admin*.js', '**/admin*.js']
-            : [],
+          globIgnores: [
+            '**/version.json',
+            ...((env.VITE_APP_TARGET || process.env.VITE_APP_TARGET) === 'public'
+              ? ['**/Admin*.js', '**/admin*.js']
+              : [])
+          ],
           navigateFallbackDenylist: [
+            /^\/version\.json$/,
             /^\/robots\.txt$/,
             /^\/sitemap\.xml$/,
             /^\/llms\.txt$/,
